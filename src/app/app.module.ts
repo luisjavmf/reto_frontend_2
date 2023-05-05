@@ -15,7 +15,14 @@ import { AffiliatesComponent } from './screens/affiliates/affiliates.component';
 import { TestsComponent } from './screens/tests/tests.component';
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, HomeComponent, AppointmentsComponent, AffiliatesComponent, TestsComponent],
+  declarations: [
+    AppComponent,
+    NavbarComponent,
+    HomeComponent,
+    AppointmentsComponent,
+    AffiliatesComponent,
+    TestsComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
