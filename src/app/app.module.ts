@@ -10,6 +10,11 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatNativeDateModule } from '@angular/material/core';
+// import { MatMoment } from '@angular/material';
 
 import { HomeComponent } from './screens/home/home.component';
 import { AppointmentsComponent } from './screens/appointments/appointments.component';
@@ -33,6 +38,10 @@ import { TestsComponent } from './screens/tests/tests.component';
     MatButtonModule,
     MatIconModule,
     MatDividerModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatNativeDateModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -7,9 +7,10 @@ import { NavigationEnd, Router } from '@angular/router';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'reto_frontend_2';
+  title = 'Consultas';
 
   constructor(private router: Router) {
+    // Set dinamically title on any route change.
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         switch (event.url) {
