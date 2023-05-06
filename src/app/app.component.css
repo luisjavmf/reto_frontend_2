@@ -1,0 +1,4 @@
+.mat-divider {
+  border-top-color: var(--primary-color);
+  border-top-width: 3px;
+}
