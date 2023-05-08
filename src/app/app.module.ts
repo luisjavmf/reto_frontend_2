@@ -12,6 +12,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatTableModule } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
 
@@ -19,6 +20,7 @@ import { HomeComponent } from './screens/home/home.component';
 import { AppointmentsComponent } from './screens/appointments/appointments.component';
 import { AffiliatesComponent } from './screens/affiliates/affiliates.component';
 import { TestsComponent } from './screens/tests/tests.component';
+import { AffiliatesTableComponent } from './screens/affiliates/affiliates-table/affiliates-table.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import { TestsComponent } from './screens/tests/tests.component';
     AppointmentsComponent,
     AffiliatesComponent,
     TestsComponent,
+    AffiliatesTableComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,6 +43,7 @@ import { TestsComponent } from './screens/tests/tests.component';
     MatDatepickerModule,
     MatFormFieldModule,
     MatInputModule,
+    MatTableModule,
     MatNativeDateModule,
   ],
   providers: [],
