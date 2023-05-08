@@ -1,15 +1,38 @@
 <div class="container">
     <div class="row">
+        <div class="col-12 d-flex">
+            <div class="d-flex align-items-start">
+                <div class="datepicker-wrapper">
+                    <mat-form-field appearance="fill" color="primary">
+                        <mat-label>Choose a date</mat-label>
+                        <input matInput [matDatepicker]="picker">
+                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <div class="button-wrapper ms-2">
+                    <button mat-fab color="primary">
+                        <mat-icon>search</mat-icon>
+                    </button>
+                </div>
+            </div>
+
+            <div class="affiliate_id_wrapper ms-5">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Id Afiliado</mat-label>
+                    <input matInput placeholder="12345">
+                </mat-form-field>
+            </div>
+            <div class="button-wrapper ms-2">
+                <button mat-fab color="primary">
+                    <mat-icon>search</mat-icon>
+                </button>
+            </div>
+        </div>
         <div class="col-12">
-            <mat-form-field appearance="fill">
-                <mat-label>Choose a date</mat-label>
-                <input matInput [matDatepicker]="picker">
-                <mat-hint>MM/DD/YYYY</mat-hint>
-                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
-            </mat-form-field>
+
+
 
         </div>
-        <div class="col-12"></div>
     </div>
 </div>

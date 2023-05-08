@@ -14,7 +14,6 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
-// import { MatMoment } from '@angular/material';
 
 import { HomeComponent } from './screens/home/home.component';
 import { AppointmentsComponent } from './screens/appointments/appointments.component';
