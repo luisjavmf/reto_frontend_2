@@ -1,23 +1,23 @@
 import { Component } from '@angular/core';
 
-export interface PeriodicElement {
+export interface Affiliate {
+  id: number;
   name: string;
-  position: number;
-  weight: number;
-  symbol: string;
+  age: number;
+  email: string;
 }
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
-  { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
-  { position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
-  { position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },
-  { position: 5, name: 'Boron', weight: 10.811, symbol: 'B' },
-  { position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C' },
-  { position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N' },
-  { position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O' },
-  { position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F' },
-  { position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' },
+const ELEMENT_DATA: Affiliate[] = [
+  { id: 1, name: 'Affiliate_1', age: 1, email: 'mail1@mail.com' },
+  { id: 2, name: 'Affiliate_2', age: 2, email: 'mail2@mail.com' },
+  { id: 3, name: 'Affiliate_3', age: 3, email: 'mail3@mail.com' },
+  { id: 4, name: 'Affiliate_4', age: 4, email: 'mail4@mail.com' },
+  { id: 5, name: 'Affiliate_5', age: 5, email: 'mail5@mail.com' },
+  { id: 6, name: 'Affiliate_6', age: 6, email: 'mail6@mail.com' },
+  { id: 7, name: 'Affiliate_7', age: 7, email: 'mail7@mail.com' },
+  { id: 8, name: 'Affiliate_8', age: 8, email: 'mail8@mail.com' },
+  { id: 9, name: 'Affiliate_9', age: 9, email: 'mail9@mail.com' },
+  { id: 10, name: 'Affiliate_10', age: 10, email: 'mail10@mail.com' },
 ];
 
 @Component({
@@ -26,6 +26,6 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./affiliates-table.component.css'],
 })
 export class AffiliatesTableComponent {
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  displayedColumns: string[] = ['id', 'name', 'age', 'email'];
   dataSource = ELEMENT_DATA;
 }
