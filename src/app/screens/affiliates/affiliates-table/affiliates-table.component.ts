@@ -41,6 +41,21 @@ export class AffiliatesTableComponent {
       row.expanded = flag;
     });
   }
+
+  translateColumnName(name: string): string {
+    switch (name) {
+      case 'id':
+        return 'Id afiliado';
+      case 'name':
+        return 'Nombre';
+      case 'age':
+        return 'Edad';
+      case 'email':
+        return 'Correo';
+      default:
+        return 'Unknown';
+    }
+  }
 }
 
 export interface Appointment {
