@@ -12,6 +12,10 @@
 }
 
 .detail-table {
-  background: #b7b7b773;
+  background: #f8f8f8;
   text-align: center;
+}
+
+.detail-table th {
+  background-color: #d9d9d9;
 }

@@ -10,20 +10,29 @@
         <ng-container matColumnDef="expandedDetail">
             <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
                 <div class="example-element-detail" [@detailExpand]="element.expanded ? 'expanded' : 'collapsed'">
-                    <table class="detail-table">
-                        <tr>
-                            <th>Avatar</th>
-                            <th>Phone</th>
-                            <th>Website</th>
-                            <th>Company</th>
-                        </tr>
-                        <tr>
-                            <td><img src="https://picsum.photos/id/{{element.id}}/150/100" alt="thumbnail"></td>
-                            <td>{{element.phone}}</td>
-                            <td>{{element.website}}</td>
-                            <td>{{element.company}}</td>
-                        </tr>
-                    </table>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <strong>Citas</strong>
+                            </div>
+
+                            <table class="detail-table">
+                                <tr>
+                                    <th>Avatar</th>
+                                    <th>Phone</th>
+                                    <th>Website</th>
+                                    <th>Company</th>
+                                </tr>
+                                <tr>
+                                    <td><img src="https://picsum.photos/id/{{element.id}}/150/100" alt="thumbnail">
+                                    </td>
+                                    <td>{{element.phone}}</td>
+                                    <td>{{element.website}}</td>
+                                    <td>{{element.company}}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </td>
         </ng-container>
