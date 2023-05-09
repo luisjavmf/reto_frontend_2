@@ -1,31 +1,114 @@
+import {
+  animate,
+  state,
+  style,
+  transition,
+  trigger,
+} from '@angular/animations';
 import { Component } from '@angular/core';
-
-export interface Affiliate {
-  id: number;
-  name: string;
-  age: number;
-  email: string;
-}
-
-const ELEMENT_DATA: Affiliate[] = [
-  { id: 1, name: 'Affiliate_1', age: 1, email: 'mail1@mail.com' },
-  { id: 2, name: 'Affiliate_2', age: 2, email: 'mail2@mail.com' },
-  { id: 3, name: 'Affiliate_3', age: 3, email: 'mail3@mail.com' },
-  { id: 4, name: 'Affiliate_4', age: 4, email: 'mail4@mail.com' },
-  { id: 5, name: 'Affiliate_5', age: 5, email: 'mail5@mail.com' },
-  { id: 6, name: 'Affiliate_6', age: 6, email: 'mail6@mail.com' },
-  { id: 7, name: 'Affiliate_7', age: 7, email: 'mail7@mail.com' },
-  { id: 8, name: 'Affiliate_8', age: 8, email: 'mail8@mail.com' },
-  { id: 9, name: 'Affiliate_9', age: 9, email: 'mail9@mail.com' },
-  { id: 10, name: 'Affiliate_10', age: 10, email: 'mail10@mail.com' },
-];
 
 @Component({
   selector: 'app-affiliates-table',
   templateUrl: './affiliates-table.component.html',
   styleUrls: ['./affiliates-table.component.css'],
+  animations: [
+    trigger('detailExpand', [
+      state('collapsed', style({ height: '0px', minHeight: '0' })),
+      state('expanded', style({ height: '*' })),
+      transition(
+        'expanded <=> collapsed',
+        animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')
+      ),
+    ]),
+  ],
 })
 export class AffiliatesTableComponent {
-  displayedColumns: string[] = ['id', 'name', 'age', 'email'];
+  title = 'angular-mat-table-example';
+
   dataSource = ELEMENT_DATA;
+  columnsToDisplay = ['id', 'name', 'username', 'email', 'address'];
+
+  toggleRow(element: { expanded: boolean }) {
+    // Uncommnet to open only single row at once
+    ELEMENT_DATA.forEach((row) => {
+      row.expanded = false;
+    });
+    element.expanded = !element.expanded;
+  }
+
+  manageAllRows(flag: boolean) {
+    ELEMENT_DATA.forEach((row) => {
+      row.expanded = flag;
+    });
+  }
 }
+
+export interface User {
+  id: number;
+  name: string;
+  username: string;
+  email: string;
+  address: string;
+  phone: string;
+  website: string;
+  company: string;
+  expanded: boolean;
+}
+
+const ELEMENT_DATA: User[] = [
+  {
+    id: 123,
+    name: 'Leanne Graham',
+    username: 'Bret',
+    email: 'Sincere@april.biz',
+    address: 'Kulas Light Apt. 556 Gwenborough',
+    phone: '1-770-736-8031 x56442',
+    website: 'hildegard.org',
+    company: 'Romaguera-Crona',
+    expanded: false,
+  },
+  {
+    id: 52,
+    name: 'Ervin Howell',
+    username: 'Antonette',
+    email: 'Shanna@melissa.tv',
+    address: 'Victor Plains Suite 879 Wisokyburgh',
+    phone: '010-692-6593 x09125',
+    website: 'anastasia.net',
+    company: 'Deckow-Crist',
+    expanded: false,
+  },
+  {
+    id: 62,
+    name: 'Clementine Bauch',
+    username: 'Samantha',
+    email: 'Nathan@yesenia.net',
+    address: 'Douglas Extension Suite 847 McKenziehaven',
+    phone: '1-463-123-4447',
+    website: 'ramiro.info',
+    company: 'Romaguera-Jacobson',
+    expanded: false,
+  },
+  {
+    id: 65,
+    name: 'Patricia Lebsack',
+    username: 'Karianne',
+    email: 'Julianne.OConner@kory.org',
+    address: 'Hoeger Mall Apt. 692 South Elvis',
+    phone: '493-170-9623 x156',
+    website: 'kale.biz',
+    company: 'Robel-Corkery',
+    expanded: false,
+  },
+  {
+    id: 84,
+    name: 'Chelsey Dietrich',
+    username: 'Kamren',
+    email: 'Lucio_Hettinger@annie.ca',
+    address: 'Skiles Walks Suite 351 Roscoeview',
+    phone: '(254)954-1289',
+    website: 'demarco.info',
+    company: 'Keebler LLC',
+    expanded: false,
+  },
+];
