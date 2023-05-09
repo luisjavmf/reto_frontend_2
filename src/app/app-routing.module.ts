@@ -4,6 +4,7 @@ import { HomeComponent } from './screens/home/home.component';
 import { TestsComponent } from './screens/tests/tests.component';
 import { AffiliatesComponent } from './screens/affiliates/affiliates.component';
 import { AppointmentsComponent } from './screens/appointments/appointments.component';
+import { AppointmentCreateComponent } from './screens/appointment-create/appointment-create.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -11,6 +12,7 @@ const routes: Routes = [
   { path: 'tests', component: TestsComponent },
   { path: 'affiliates', component: AffiliatesComponent },
   { path: 'appointments', component: AppointmentsComponent },
+  { path: 'appointments/create', component: AppointmentCreateComponent },
 ];
 
 @NgModule({

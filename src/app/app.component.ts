@@ -23,6 +23,9 @@ export class AppComponent {
           case '/appointments':
             this.title = 'Citas';
             break;
+          case '/appointments/create':
+            this.title = 'Citas - Nueva Cita';
+            break;
           case '/affiliates':
             this.title = 'Afiliados';
             break;

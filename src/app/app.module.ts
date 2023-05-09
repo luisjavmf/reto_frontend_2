@@ -21,6 +21,7 @@ import { AppointmentsComponent } from './screens/appointments/appointments.compo
 import { AffiliatesComponent } from './screens/affiliates/affiliates.component';
 import { TestsComponent } from './screens/tests/tests.component';
 import { AffiliatesTableComponent } from './screens/affiliates/affiliates-table/affiliates-table.component';
+import { AppointmentCreateComponent } from './screens/appointment-create/appointment-create.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { AffiliatesTableComponent } from './screens/affiliates/affiliates-table/
     AffiliatesComponent,
     TestsComponent,
     AffiliatesTableComponent,
+    AppointmentCreateComponent,
   ],
   imports: [
     BrowserModule,
