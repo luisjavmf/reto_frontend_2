@@ -26,7 +26,7 @@ export class AffiliatesTableComponent {
   title = 'angular-mat-table-example';
 
   dataSource = ELEMENT_DATA;
-  columnsToDisplay = ['id', 'name', 'username', 'email', 'address'];
+  columnsToDisplay = ['id', 'name', 'age', 'email'];
 
   toggleRow(element: { expanded: boolean }) {
     // Uncommnet to open only single row at once
@@ -43,72 +43,170 @@ export class AffiliatesTableComponent {
   }
 }
 
-export interface User {
+export interface Appointment {
   id: number;
-  name: string;
-  username: string;
-  email: string;
-  address: string;
-  phone: string;
-  website: string;
-  company: string;
-  expanded: boolean;
+  date: string;
+  hour: string;
+  testId: number;
+  testName: string;
+  affiliateId: number;
 }
 
-const ELEMENT_DATA: User[] = [
+export interface Affiliate {
+  id: number;
+  name: string;
+  age: number;
+  email: string;
+  expanded: boolean;
+  appointments: Appointment[];
+}
+
+const ELEMENT_DATA: Affiliate[] = [
   {
-    id: 123,
-    name: 'Leanne Graham',
-    username: 'Bret',
-    email: 'Sincere@april.biz',
-    address: 'Kulas Light Apt. 556 Gwenborough',
-    phone: '1-770-736-8031 x56442',
-    website: 'hildegard.org',
-    company: 'Romaguera-Crona',
+    id: 1,
+    name: 'Affiliate_1',
+    age: 1,
+    email: 'mail1@mail.com',
     expanded: false,
+    appointments: [
+      {
+        id: 2,
+        date: '1/1/2023',
+        hour: '12:00',
+        testId: 1,
+        affiliateId: 1,
+        testName: 'aaa',
+      },
+      {
+        id: 3,
+        date: '2/1/2023',
+        hour: '13:00',
+        testId: 3,
+        affiliateId: 1,
+        testName: 'aaa',
+      },
+      {
+        id: 4,
+        date: '3/1/2023',
+        hour: '14:00',
+        testId: 23,
+        affiliateId: 1,
+        testName: 'aaa',
+      },
+      {
+        id: 5,
+        date: '4/1/2023',
+        hour: '15:00',
+        testId: 2,
+        affiliateId: 1,
+        testName: 'aaa',
+      },
+    ],
   },
   {
-    id: 52,
-    name: 'Ervin Howell',
-    username: 'Antonette',
-    email: 'Shanna@melissa.tv',
-    address: 'Victor Plains Suite 879 Wisokyburgh',
-    phone: '010-692-6593 x09125',
-    website: 'anastasia.net',
-    company: 'Deckow-Crist',
+    id: 2,
+    name: 'Affiliate_2',
+    age: 1,
+    email: 'mail2@mail.com',
     expanded: false,
+    appointments: [
+      {
+        id: 6,
+        date: '4/2/2023',
+        hour: '16:00',
+        testId: 2,
+        affiliateId: 2,
+        testName: 'aaa',
+      },
+      {
+        id: 7,
+        date: '5/2/2023',
+        hour: '17:00',
+        testId: 1,
+        affiliateId: 2,
+        testName: 'aaa',
+      },
+      {
+        id: 8,
+        date: '6/2/2023',
+        hour: '18:00',
+        testId: 3,
+        affiliateId: 2,
+        testName: 'aaa',
+      },
+    ],
   },
   {
-    id: 62,
-    name: 'Clementine Bauch',
-    username: 'Samantha',
-    email: 'Nathan@yesenia.net',
-    address: 'Douglas Extension Suite 847 McKenziehaven',
-    phone: '1-463-123-4447',
-    website: 'ramiro.info',
-    company: 'Romaguera-Jacobson',
+    id: 3,
+    name: 'Affiliate_3',
+    age: 1,
+    email: 'mail3@mail.com',
     expanded: false,
+    appointments: [
+      {
+        id: 9,
+        date: '6/3/2023',
+        hour: '18:00',
+        testId: 3,
+        affiliateId: 3,
+        testName: 'aaa',
+      },
+    ],
   },
   {
-    id: 65,
-    name: 'Patricia Lebsack',
-    username: 'Karianne',
-    email: 'Julianne.OConner@kory.org',
-    address: 'Hoeger Mall Apt. 692 South Elvis',
-    phone: '493-170-9623 x156',
-    website: 'kale.biz',
-    company: 'Robel-Corkery',
+    id: 4,
+    name: 'Affiliate_4',
+    age: 1,
+    email: 'mail4@mail.com',
     expanded: false,
+    appointments: [],
   },
   {
-    id: 84,
-    name: 'Chelsey Dietrich',
-    username: 'Kamren',
-    email: 'Lucio_Hettinger@annie.ca',
-    address: 'Skiles Walks Suite 351 Roscoeview',
-    phone: '(254)954-1289',
-    website: 'demarco.info',
-    company: 'Keebler LLC',
+    id: 5,
+    name: 'Affiliate_5',
+    age: 1,
+    email: 'mail5@mail.com',
     expanded: false,
+    appointments: [],
+  },
+  {
+    id: 6,
+    name: 'Affiliate_6',
+    age: 1,
+    email: 'mail6@mail.com',
+    expanded: false,
+    appointments: [],
+  },
+  {
+    id: 7,
+    name: 'Affiliate_7',
+    age: 1,
+    email: 'mail7@mail.com',
+    expanded: false,
+    appointments: [],
+  },
+  {
+    id: 8,
+    name: 'Affiliate_8',
+    age: 1,
+    email: 'mail8@mail.com',
+    expanded: false,
+    appointments: [],
+  },
+  {
+    id: 9,
+    name: 'Affiliate_9',
+    age: 1,
+    email: 'mail9@mail.com',
+    expanded: false,
+    appointments: [],
+  },
+  {
+    id: 10,
+    name: 'Affiliate_10',
+    age: 1,
+    email: 'mail10@mail.com',
+    expanded: false,
+    appointments: [],
   },
 ];

@@ -16,19 +16,19 @@
                                 <strong>Citas</strong>
                             </div>
 
-                            <table class="detail-table">
+                            <table class="detail-table mt-1 mb-3">
                                 <tr>
-                                    <th>Avatar</th>
-                                    <th>Phone</th>
-                                    <th>Website</th>
-                                    <th>Company</th>
+                                    <th>Id</th>
+                                    <th>Fecha</th>
+                                    <th>Hora</th>
+                                    <th>Nombre de Prueba</th>
                                 </tr>
-                                <tr>
-                                    <td><img src="https://picsum.photos/id/{{element.id}}/150/100" alt="thumbnail">
+                                <tr *ngFor="let appointment of element.appointments">
+                                    <td>{{appointment.id}}
                                     </td>
-                                    <td>{{element.phone}}</td>
-                                    <td>{{element.website}}</td>
-                                    <td>{{element.company}}</td>
+                                    <td>{{appointment.date}}</td>
+                                    <td>{{appointment.hour}}</td>
+                                    <td>{{appointment.testName}}</td>
                                 </tr>
                             </table>
                         </div>
