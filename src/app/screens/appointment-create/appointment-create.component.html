@@ -1,1 +1,15 @@
-<p>appointment-create works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-6 col-md-3">
+            <mat-form-field appearance="fill" color="primary">
+                <mat-label>Choose a date</mat-label>
+                <input matInput [matDatepicker]="picker">
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        </div>
+        <div class="col-6 col-md-3">Time Picker Here</div>
+        <div class="col-6 col-md-3">3</div>
+        <div class="col-6 col-md-3">4</div>
+    </div>
+</div>
