@@ -80,7 +80,7 @@ export interface Appointment {
   affiliateId: number;
 }
 
-export interface Affiliate {
+export interface AffiliateDto {
   id: number;
   name: string;
   age: number;
@@ -89,7 +89,7 @@ export interface Affiliate {
   appointments: Appointment[];
 }
 
-const ELEMENT_DATA: Affiliate[] = [
+const ELEMENT_DATA: AffiliateDto[] = [
   {
     id: 1,
     name: 'Affiliate_1',
