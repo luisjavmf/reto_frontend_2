@@ -13,6 +13,7 @@ const routes: Routes = [
   { path: 'affiliates', component: AffiliatesComponent },
   { path: 'appointments', component: AppointmentsComponent },
   { path: 'appointments/create', component: AppointmentCreateComponent },
+  { path: 'appointments/edit/:id', component: AppointmentCreateComponent },
 ];
 
 @NgModule({

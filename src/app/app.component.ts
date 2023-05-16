@@ -13,6 +13,17 @@ export class AppComponent {
     // Set dinamically title on any route change.
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
+        const arr = event.url.split('/');
+        arr.shift();
+        // Remove :id param from route
+        if (arr.length == 3) {
+          arr.pop();
+          event.url = '/' + arr.join('/');
+        }
+
+        console.log(event.url);
+        console.log(arr);
+
         switch (event.url) {
           case '/home':
             this.title = 'Consultas';
@@ -25,6 +36,9 @@ export class AppComponent {
             break;
           case '/appointments/create':
             this.title = 'Citas - Nueva Cita';
+            break;
+          case '/appointments/edit':
+            this.title = 'Citas - Actualizar Cita';
             break;
           case '/affiliates':
             this.title = 'Afiliados';
