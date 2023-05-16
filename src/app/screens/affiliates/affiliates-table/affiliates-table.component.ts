@@ -6,6 +6,8 @@ import {
   trigger,
 } from '@angular/animations';
 import { Component } from '@angular/core';
+import { OnInit } from '@angular/core';
+import { AffiliateService } from '../affiliate.service';
 
 @Component({
   selector: 'app-affiliates-table',
@@ -22,7 +24,18 @@ import { Component } from '@angular/core';
     ]),
   ],
 })
-export class AffiliatesTableComponent {
+export class AffiliatesTableComponent implements OnInit {
+  constructor(private affiliateService: AffiliateService) {}
+
+  ngOnInit() {
+    this.affiliateService.fetchAffiliates().subscribe(
+      (data) => {
+        // this.dataSource = data.map
+      },
+      (error) => {}
+    );
+  }
+
   title = 'angular-mat-table-example';
 
   dataSource = ELEMENT_DATA;
