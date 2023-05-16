@@ -8,8 +8,35 @@
                 <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
         </div>
-        <div class="col-6 col-md-3">Time Picker Here</div>
-        <div class="col-6 col-md-3">3</div>
-        <div class="col-6 col-md-3">4</div>
+        <div class="col-6 col-md-3">
+            <mat-form-field style="width: 100%;">
+                <mat-label>Hora</mat-label>
+                <!-- <input type="time" matInput value="12:00" /> -->
+                <input type="time" matInput />
+            </mat-form-field>
+        </div>
+        <div class="col-6 col-md-3">
+            <mat-form-field style="width: 100%;">
+                <mat-label>Id Prueba</mat-label>
+                <input type="text" matInput />
+            </mat-form-field>
+        </div>
+        <div class="col-6 col-md-3">
+            <mat-form-field style="width: 100%;">
+                <mat-label>Id Afiliado</mat-label>
+                <input type="text" matInput />
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col d-flex justify-content-end">
+            <div class="wrapper">
+                <button mat-raised-button color="primary">Guardar</button>
+            </div>
+            <div class="wrapper ms-2">
+                <button mat-raised-button color="warn">Cancelar</button>
+            </div>
+        </div>
     </div>
 </div>
