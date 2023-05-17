@@ -6,6 +6,10 @@
   border-bottom-width: 0;
 }
 
+tr :hover {
+  cursor: default;
+}
+
 .example-element-detail {
   overflow: hidden;
   display: flex;

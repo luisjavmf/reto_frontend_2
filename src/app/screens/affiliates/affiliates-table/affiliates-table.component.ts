@@ -27,35 +27,29 @@ import { Appointment } from 'src/app/shared/interfaces/appointment.interface';
   ],
 })
 export class AffiliatesTableComponent implements OnInit {
-  constructor(private affiliateService: AffiliateService) {}
-
-  ngOnInit() {
-    this.affiliateService.fetchAffiliates().subscribe(
-      (data: Affiliate[]) => {
-        this.dataSource = data.map((item) => {
-          return { ...item, expanded: false, appointments: [] };
-        });
-      },
-      (error) => {}
-    );
-  }
-
-  title = 'angular-mat-table-example';
-
-  // dataSource = ELEMENT_DATA;
   dataSource: AffiliateDto[] = [];
   columnsToDisplay = ['id', 'name', 'age', 'email'];
 
+  constructor(private affiliateService: AffiliateService) {}
+
+  ngOnInit() {
+    this.affiliateService.fetchAffiliates().subscribe((data: Affiliate[]) => {
+      this.dataSource = data.map((item) => {
+        return { ...item, expanded: false, appointments: [] };
+      });
+    });
+  }
+
   toggleRow(element: { expanded: boolean }) {
     // Uncommnet to open only single row at once
-    ELEMENT_DATA.forEach((row) => {
+    this.dataSource.forEach((row) => {
       row.expanded = false;
     });
     element.expanded = !element.expanded;
   }
 
   manageAllRows(flag: boolean) {
-    ELEMENT_DATA.forEach((row) => {
+    this.dataSource.forEach((row) => {
       row.expanded = flag;
     });
   }
@@ -75,15 +69,6 @@ export class AffiliatesTableComponent implements OnInit {
     }
   }
 }
-
-// export interface Appointment {
-//   id: number;
-//   date: string;
-//   hour: string;
-//   testId: number;
-//   testName: string;
-//   affiliateId: number;
-// }
 
 export interface AffiliateDto {
   id: number;
