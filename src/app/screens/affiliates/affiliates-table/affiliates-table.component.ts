@@ -8,6 +8,7 @@ import {
 import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { AffiliateService } from '../affiliate.service';
+import { Affiliate } from 'src/app/shared/interfaces/affiliate.interface';
 
 @Component({
   selector: 'app-affiliates-table',
@@ -29,8 +30,10 @@ export class AffiliatesTableComponent implements OnInit {
 
   ngOnInit() {
     this.affiliateService.fetchAffiliates().subscribe(
-      (data) => {
-        // this.dataSource = data.map
+      (data: Affiliate[]) => {
+        this.dataSource = data.map((item) => {
+          return { ...item, expanded: false, appointments: [] };
+        });
       },
       (error) => {}
     );
@@ -38,7 +41,8 @@ export class AffiliatesTableComponent implements OnInit {
 
   title = 'angular-mat-table-example';
 
-  dataSource = ELEMENT_DATA;
+  // dataSource = ELEMENT_DATA;
+  dataSource: AffiliateDto[] = [];
   columnsToDisplay = ['id', 'name', 'age', 'email'];
 
   toggleRow(element: { expanded: boolean }) {

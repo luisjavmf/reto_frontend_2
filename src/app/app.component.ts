@@ -21,9 +21,6 @@ export class AppComponent {
           event.url = '/' + arr.join('/');
         }
 
-        console.log(event.url);
-        console.log(arr);
-
         switch (event.url) {
           case '/home':
             this.title = 'Consultas';
