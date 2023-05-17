@@ -9,6 +9,7 @@ import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { AffiliateService } from '../affiliate.service';
 import { Affiliate } from 'src/app/shared/interfaces/affiliate.interface';
+import { Appointment } from 'src/app/shared/interfaces/appointment.interface';
 
 @Component({
   selector: 'app-affiliates-table',
@@ -75,14 +76,14 @@ export class AffiliatesTableComponent implements OnInit {
   }
 }
 
-export interface Appointment {
-  id: number;
-  date: string;
-  hour: string;
-  testId: number;
-  testName: string;
-  affiliateId: number;
-}
+// export interface Appointment {
+//   id: number;
+//   date: string;
+//   hour: string;
+//   testId: number;
+//   testName: string;
+//   affiliateId: number;
+// }
 
 export interface AffiliateDto {
   id: number;
@@ -108,6 +109,7 @@ const ELEMENT_DATA: AffiliateDto[] = [
         testId: 1,
         affiliateId: 1,
         testName: 'aaa',
+        affiliateName: 'any',
       },
       {
         id: 3,
@@ -116,6 +118,7 @@ const ELEMENT_DATA: AffiliateDto[] = [
         testId: 3,
         affiliateId: 1,
         testName: 'aaa',
+        affiliateName: 'any',
       },
       {
         id: 4,
@@ -124,6 +127,7 @@ const ELEMENT_DATA: AffiliateDto[] = [
         testId: 23,
         affiliateId: 1,
         testName: 'aaa',
+        affiliateName: 'any',
       },
       {
         id: 5,
@@ -132,6 +136,7 @@ const ELEMENT_DATA: AffiliateDto[] = [
         testId: 2,
         affiliateId: 1,
         testName: 'aaa',
+        affiliateName: 'any',
       },
     ],
   },
@@ -149,6 +154,7 @@ const ELEMENT_DATA: AffiliateDto[] = [
         testId: 2,
         affiliateId: 2,
         testName: 'aaa',
+        affiliateName: 'any',
       },
       {
         id: 7,
@@ -157,6 +163,7 @@ const ELEMENT_DATA: AffiliateDto[] = [
         testId: 1,
         affiliateId: 2,
         testName: 'aaa',
+        affiliateName: 'any',
       },
       {
         id: 8,
@@ -165,6 +172,7 @@ const ELEMENT_DATA: AffiliateDto[] = [
         testId: 3,
         affiliateId: 2,
         testName: 'aaa',
+        affiliateName: 'any',
       },
     ],
   },
@@ -182,6 +190,7 @@ const ELEMENT_DATA: AffiliateDto[] = [
         testId: 3,
         affiliateId: 3,
         testName: 'aaa',
+        affiliateName: 'any',
       },
     ],
   },

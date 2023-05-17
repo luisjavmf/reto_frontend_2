@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Appointment } from '../affiliates/affiliates-table/affiliates-table.component';
+import { Appointment } from 'src/app/shared/interfaces/appointment.interface';
+// import { Appointment } from '../affiliates/affiliates-table/affiliates-table.component';
 
 @Component({
   selector: 'app-appointments',
@@ -27,6 +28,7 @@ const ELEMENT_DATA: Appointment[] = [
     testId: 1,
     affiliateId: 1,
     testName: 'any test',
+    affiliateName: 'any',
   },
   {
     id: 2,
@@ -35,6 +37,7 @@ const ELEMENT_DATA: Appointment[] = [
     testId: 1,
     affiliateId: 1,
     testName: 'any test',
+    affiliateName: 'any',
   },
   {
     id: 3,
@@ -43,6 +46,7 @@ const ELEMENT_DATA: Appointment[] = [
     testId: 1,
     affiliateId: 1,
     testName: 'any test',
+    affiliateName: 'any',
   },
   {
     id: 4,
@@ -51,6 +55,7 @@ const ELEMENT_DATA: Appointment[] = [
     testId: 1,
     affiliateId: 1,
     testName: 'any test',
+    affiliateName: 'any',
   },
   {
     id: 5,
@@ -59,5 +64,6 @@ const ELEMENT_DATA: Appointment[] = [
     testId: 1,
     affiliateId: 1,
     testName: 'any test',
+    affiliateName: 'any',
   },
 ];
