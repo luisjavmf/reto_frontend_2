@@ -5,6 +5,7 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
+// import {lastValueFrom} from'rxjs
 import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { AffiliateService } from '../affiliate.service';
@@ -32,12 +33,15 @@ export class AffiliatesTableComponent implements OnInit {
 
   constructor(private affiliateService: AffiliateService) {}
 
-  ngOnInit() {
+  async ngOnInit() {
     this.affiliateService.fetchAffiliates().subscribe((data: Affiliate[]) => {
       this.dataSource = data.map((item) => {
         return { ...item, expanded: false, appointments: [] };
       });
     });
+
+    let data = await this.affiliateService.fetchAllAffiliatesWithAppointments();
+    console.log(data.valueOf());
   }
 
   toggleRow(element: { expanded: boolean }) {
