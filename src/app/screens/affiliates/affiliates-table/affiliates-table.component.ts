@@ -11,6 +11,7 @@ import { OnInit } from '@angular/core';
 import { AffiliateService } from '../affiliate.service';
 import { Affiliate } from 'src/app/shared/interfaces/affiliate.interface';
 import { Appointment } from 'src/app/shared/interfaces/appointment.interface';
+import { AffiliateAppointments } from 'src/app/shared/interfaces/affiliateAppointments.interface';
 
 @Component({
   selector: 'app-affiliates-table',
@@ -34,14 +35,12 @@ export class AffiliatesTableComponent implements OnInit {
   constructor(private affiliateService: AffiliateService) {}
 
   async ngOnInit() {
-    this.affiliateService.fetchAffiliates().subscribe((data: Affiliate[]) => {
-      this.dataSource = data.map((item) => {
-        return { ...item, expanded: false, appointments: [] };
-      });
-    });
+    let data: AffiliateAppointments[] =
+      await this.affiliateService.getAffiliateAppointments();
 
-    let data = await this.affiliateService.fetchAllAffiliatesWithAppointments();
-    console.log(data.valueOf());
+    this.dataSource = data.map((item) => {
+      return { ...item, expanded: false };
+    });
   }
 
   toggleRow(element: { expanded: boolean }) {
@@ -82,161 +81,3 @@ export interface AffiliateDto {
   expanded: boolean;
   appointments: Appointment[];
 }
-
-const ELEMENT_DATA: AffiliateDto[] = [
-  {
-    id: 1,
-    name: 'Affiliate_1',
-    age: 1,
-    email: 'mail1@mail.com',
-    expanded: false,
-    appointments: [
-      {
-        id: 2,
-        date: '1/1/2023',
-        hour: '12:00',
-        testId: 1,
-        affiliateId: 1,
-        testName: 'aaa',
-        affiliateName: 'any',
-      },
-      {
-        id: 3,
-        date: '2/1/2023',
-        hour: '13:00',
-        testId: 3,
-        affiliateId: 1,
-        testName: 'aaa',
-        affiliateName: 'any',
-      },
-      {
-        id: 4,
-        date: '3/1/2023',
-        hour: '14:00',
-        testId: 23,
-        affiliateId: 1,
-        testName: 'aaa',
-        affiliateName: 'any',
-      },
-      {
-        id: 5,
-        date: '4/1/2023',
-        hour: '15:00',
-        testId: 2,
-        affiliateId: 1,
-        testName: 'aaa',
-        affiliateName: 'any',
-      },
-    ],
-  },
-  {
-    id: 2,
-    name: 'Affiliate_2',
-    age: 1,
-    email: 'mail2@mail.com',
-    expanded: false,
-    appointments: [
-      {
-        id: 6,
-        date: '4/2/2023',
-        hour: '16:00',
-        testId: 2,
-        affiliateId: 2,
-        testName: 'aaa',
-        affiliateName: 'any',
-      },
-      {
-        id: 7,
-        date: '5/2/2023',
-        hour: '17:00',
-        testId: 1,
-        affiliateId: 2,
-        testName: 'aaa',
-        affiliateName: 'any',
-      },
-      {
-        id: 8,
-        date: '6/2/2023',
-        hour: '18:00',
-        testId: 3,
-        affiliateId: 2,
-        testName: 'aaa',
-        affiliateName: 'any',
-      },
-    ],
-  },
-  {
-    id: 3,
-    name: 'Affiliate_3',
-    age: 1,
-    email: 'mail3@mail.com',
-    expanded: false,
-    appointments: [
-      {
-        id: 9,
-        date: '6/3/2023',
-        hour: '18:00',
-        testId: 3,
-        affiliateId: 3,
-        testName: 'aaa',
-        affiliateName: 'any',
-      },
-    ],
-  },
-  {
-    id: 4,
-    name: 'Affiliate_4',
-    age: 1,
-    email: 'mail4@mail.com',
-    expanded: false,
-    appointments: [],
-  },
-  {
-    id: 5,
-    name: 'Affiliate_5',
-    age: 1,
-    email: 'mail5@mail.com',
-    expanded: false,
-    appointments: [],
-  },
-  {
-    id: 6,
-    name: 'Affiliate_6',
-    age: 1,
-    email: 'mail6@mail.com',
-    expanded: false,
-    appointments: [],
-  },
-  {
-    id: 7,
-    name: 'Affiliate_7',
-    age: 1,
-    email: 'mail7@mail.com',
-    expanded: false,
-    appointments: [],
-  },
-  {
-    id: 8,
-    name: 'Affiliate_8',
-    age: 1,
-    email: 'mail8@mail.com',
-    expanded: false,
-    appointments: [],
-  },
-  {
-    id: 9,
-    name: 'Affiliate_9',
-    age: 1,
-    email: 'mail9@mail.com',
-    expanded: false,
-    appointments: [],
-  },
-  {
-    id: 10,
-    name: 'Affiliate_10',
-    age: 1,
-    email: 'mail10@mail.com',
-    expanded: false,
-    appointments: [],
-  },
-];

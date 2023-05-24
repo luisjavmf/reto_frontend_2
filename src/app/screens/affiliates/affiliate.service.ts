@@ -17,12 +17,19 @@ export class AffiliateService {
     private appointmentService: AppointmentService
   ) {}
 
-  readonly apiUrl: string = environment.URL;
+  readonly apiUrl: string = environment.URL + '/affiliates';
+
+  affiliatesAppointments: AffiliateAppointments[] = [];
 
   fetchAffiliates(): Observable<Affiliate[]> {
-    return this.http.get<Affiliate[]>(`${this.apiUrl}/affiliates`);
+    return this.http.get<Affiliate[]>(`${this.apiUrl}`);
   }
 
+  /**
+   * Fetch all affiliates with their appointments.
+   *
+   * @returns Promise<AffiliateAppointments[]>
+   */
   async fetchAllAffiliatesWithAppointments(): Promise<AffiliateAppointments[]> {
     let affiliates$ = this.fetchAffiliates();
     let affiliates = await lastValueFrom(affiliates$);
@@ -38,5 +45,11 @@ export class AffiliateService {
     );
 
     return result;
+  }
+
+  async getAffiliateAppointments() {
+    return this.affiliatesAppointments.length === 0
+      ? await this.fetchAllAffiliatesWithAppointments()
+      : this.affiliatesAppointments;
   }
 }
