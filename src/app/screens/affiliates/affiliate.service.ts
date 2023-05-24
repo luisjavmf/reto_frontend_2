@@ -19,10 +19,21 @@ export class AffiliateService {
 
   readonly apiUrl: string = environment.URL + '/affiliates';
 
-  affiliatesAppointments: AffiliateAppointments[] = [];
+  private affiliatesAppointments: AffiliateAppointments[] = [];
 
-  fetchAffiliates(): Observable<Affiliate[]> {
-    return this.http.get<Affiliate[]>(`${this.apiUrl}`);
+  async setAffiliateAppointments() {
+    this.affiliatesAppointments =
+      await this.fetchAllAffiliatesWithAppointments();
+  }
+
+  async getAffiliateAppointments() {
+    if (this.affiliatesAppointments.length === 0) {
+      let result = await this.fetchAllAffiliatesWithAppointments();
+      this.affiliatesAppointments = result;
+      return result;
+    }
+
+    return this.affiliatesAppointments;
   }
 
   /**
@@ -30,7 +41,9 @@ export class AffiliateService {
    *
    * @returns Promise<AffiliateAppointments[]>
    */
-  async fetchAllAffiliatesWithAppointments(): Promise<AffiliateAppointments[]> {
+  private async fetchAllAffiliatesWithAppointments(): Promise<
+    AffiliateAppointments[]
+  > {
     let affiliates$ = this.fetchAffiliates();
     let affiliates = await lastValueFrom(affiliates$);
 
@@ -47,9 +60,7 @@ export class AffiliateService {
     return result;
   }
 
-  async getAffiliateAppointments() {
-    return this.affiliatesAppointments.length === 0
-      ? await this.fetchAllAffiliatesWithAppointments()
-      : this.affiliatesAppointments;
+  private fetchAffiliates(): Observable<Affiliate[]> {
+    return this.http.get<Affiliate[]>(`${this.apiUrl}`);
   }
 }
